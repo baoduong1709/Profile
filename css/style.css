@@ -696,24 +696,28 @@ body[data-theme="light"] .profile-card-glass {
     flex-direction: column;
     overflow: hidden;
     height: 100%;
+    position: relative;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
-.project-img-placeholder {
+.project-img-container {
     width: 100%;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.02);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
     border-bottom: 1px solid var(--glass-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
-    color: var(--text-muted);
-    transition: color var(--transition-smooth), background-color var(--transition-smooth);
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
 }
 
-.project-card:hover .project-img-placeholder {
-    color: var(--accent-primary);
-    background: rgba(99, 102, 241, 0.05);
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
 }
 
 .project-info {
@@ -779,6 +783,91 @@ body[data-theme="light"] .profile-card-glass {
 
 .project-links a:hover {
     color: var(--text-primary);
+}
+
+/* Projects Filter Tabs Styling */
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(99, 102, 241, 0.4);
+    background: var(--glass-border);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Project Category Badge Styling */
+.project-category-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    background: rgba(10, 11, 16, 0.75);
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+body[data-theme="light"] .project-category-badge {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.badge-enterprise {
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    color: #c7d2fe;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="light"] .badge-enterprise {
+    border: 1px solid rgba(79, 70, 229, 0.35);
+    color: #4f46e5;
+    text-shadow: none;
+}
+
+.badge-personal {
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    color: #f3e8ff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="light"] .badge-personal {
+    border: 1px solid rgba(147, 51, 234, 0.35);
+    color: #9333ea;
+    text-shadow: none;
 }
 
 /* ==========================================================================

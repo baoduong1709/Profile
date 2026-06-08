@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typewriter Effect
     // ==========================================================================
     const typewriterElement = document.getElementById('typewriter');
-    const words = ["Backend Developer", "API Architect", "Database Optimizer", "System Engineer"];
+    const words = ["Full Stack Developer", "Frontend Engineer", "API Architect", "Database Optimizer"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -216,5 +216,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 notification.remove();
             }, 400);
         }, 5000);
+    }
+
+    // ==========================================================================
+    // Projects Filtering Logic
+    // ==========================================================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Active filter styling update
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterType = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    // Trigger fade-out scale animation
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    
+                    // Delay display change until animation completes
+                    setTimeout(() => {
+                        if (filterType === 'all' || card.getAttribute('data-category') === filterType) {
+                            card.style.display = 'flex';
+                            // Let the browser calculate layout before fading back in
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 400); // Matches --transition-smooth (0.4s)
+                });
+            });
+        });
     }
 });
