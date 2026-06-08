@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Duong Huy Bao - Professional Backend Developer. Specializing in NestJS, database optimization, microservices, and scalable systems.">
+    <meta name="keywords" content="Duong Huy Bao, Backend Developer, Portfolio, Software Engineer, NestJS, Madison Technologies, Da Nang">
+    <meta name="author" content="Duong Huy Bao">
+    <title>Duong Huy Bao | Backend Developer Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="dark">
+    <!-- Background Gradients (Decorative for Glassmorphism) -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <span class="logo-dot"></span>
+                <span>BaoDuong.dev</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle light/dark theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content fade-in">
+                    <span class="hero-subtitle">Engineering Robust Systems</span>
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Duong Huy Bao</span></h1>
+                    <h2 class="hero-tagline">I'm a <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></h2>
+                    <p class="hero-description">
+                        Backend developer with 2 years of experience in web application development. Specializing in building and maintaining scalable, high-performance systems with a strong focus on clean architecture, database optimization, and AI tool integrations.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper fade-in">
+                    <div class="profile-card-glass">
+                        <div class="avatar-container">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                        </div>
+                        <div class="profile-card-info">
+                            <h3>Duong Huy Bao</h3>
+                            <p>Backend Developer</p>
+                            <div class="profile-card-socials">
+                                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="mailto:bao.duong.huy@madison.dev" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">My professional background</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text-card glass-panel">
+                        <h3>My Story & Experience</h3>
+                        <p>
+                            Currently working at <strong>Madison Technologies</strong>, I design and develop reliable APIs and system structures that power high-traffic applications. I have a strong foundation in clean architecture patterns, allowing me to build codebases that are easily testable, modular, and maintainable.
+                        </p>
+                        <p>
+                            I specialize in the Node.js ecosystem (NestJS) and work extensively with various relational and non-relational database systems. I am passionate about performance tuning, query optimization, and integrating cutting-edge AI utilities directly into production workflows.
+                        </p>
+                        <p>
+                            I graduated with a Bachelor's degree from the <strong>University of Economics – The University of Danang</strong> (2020 - 2024), where I refined my analytical thinking and problem-solving methodologies.
+                        </p>
+                    </div>
+                    <div class="about-stats-grid">
+                        <div class="stat-card glass-panel">
+                            <span class="stat-num">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <span class="stat-num">2</span>
+                            <span class="stat-label">Enterprise Projects</span>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <span class="stat-num">6</span>
+                            <span class="stat-label">Avg. Team Size</span>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <span class="stat-num">1.5+</span>
+                            <span class="stat-label">Years Longest Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Technologies, frameworks, and methodologies I specialize in</p>
+                </div>
+                <div class="skills-grid">
+                    <!-- Backend & Architecture Card -->
+                    <div class="skills-card glass-panel">
+                        <div class="skills-card-header">
+                            <i class="fas fa-server skill-icon"></i>
+                            <h3>Backend & Architecture</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-node-js text-green"></i> NestJS / Node.js</li>
+                            <li><i class="fas fa-network-wired text-blue"></i> RESTful API Design</li>
+                            <li><i class="fas fa-cubes text-purple"></i> Microservices Architecture</li>
+                            <li><i class="fas fa-clock text-orange"></i> Task Scheduling (BullJS)</li>
+                            <li><i class="fas fa-shield-alt text-teal"></i> Clean Architecture</li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases & Caching Card -->
+                    <div class="skills-card glass-panel">
+                        <div class="skills-card-header">
+                            <i class="fas fa-database skill-icon"></i>
+                            <h3>Databases & Caching</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-leaf text-darkgreen"></i> MongoDB</li>
+                            <li><i class="fas fa-database text-blue"></i> PostgreSQL / MySQL</li>
+                            <li><i class="fas fa-project-diagram text-cyan"></i> Prisma ORM</li>
+                            <li><i class="fas fa-bolt text-yellow"></i> Redis (Caching & Queues)</li>
+                            <li><i class="fas fa-chart-line text-pink"></i> Query Optimization</li>
+                        </ul>
+                    </div>
+
+                    <!-- DevOps & Integrations Card -->
+                    <div class="skills-card glass-panel">
+                        <div class="skills-card-header">
+                            <i class="fas fa-cogs skill-icon"></i>
+                            <h3>DevOps & Integrations</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-git-alt text-red"></i> Git / GitHub Version Control</li>
+                            <li><i class="fab fa-docker text-lightblue"></i> Docker Containerization</li>
+                            <li><i class="fas fa-brain text-pink"></i> AI API Integration</li>
+                            <li><i class="fas fa-fire text-orange"></i> Firebase Integration</li>
+                            <li><i class="fas fa-drafting-compass text-purple"></i> Autodesk Construction API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Enterprise Projects</h2>
+                    <p class="section-subtitle">Real-world systems built with professional engineering standards</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1: GDOS -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Cloud Enterprise / Construction</span>
+                            <h3>Gamuda Digital Operating System (GDOS)</h3>
+                            <p>
+                                A centralized, cloud-based software ecosystem that integrates and streamlines construction project management and operations across Gamuda's global projects. Consolidates enterprise data from Autodesk Construction Cloud (ACC), SAP, and Oracle P6 to eliminate data silos. Digitizes daily operations such as quality inspections, checklists, safety forms, and cost monitoring.
+                            </p>
+                            <div class="project-tech">
+                                <span>NestJS</span>
+                                <span>Redis</span>
+                                <span>MongoDB</span>
+                                <span>BullJS</span>
+                                <span>Firebase</span>
+                                <span>Autodesk API</span>
+                            </div>
+                            <div class="project-links">
+                                <span><i class="fas fa-users"></i> Team: 6 (Backend)</span>
+                                <span><i class="fas fa-hourglass-half"></i> Duration: 3 Mos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Gamuda Lifestyle App -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Mobile Ecosystem / Resident Management</span>
+                            <h3>Gamuda Land Lifestyle App (GL Lifestyle+)</h3>
+                            <p>
+                                A comprehensive resident management solution (RMS) mobile application developed for homeowners and residents within the Gamuda Land ecosystem. Features facility booking, smart visitor management, loyalty rewards programs, community announcements, safety panic buttons, and an AI Concierge to assist residents throughout their homeownership journey.
+                            </p>
+                            <div class="project-tech">
+                                <span>NestJS</span>
+                                <span>Prisma</span>
+                                <span>PostgreSQL</span>
+                                <span>MySQL</span>
+                                <span>Redis</span>
+                                <span>BullJS</span>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="project-links">
+                                <span><i class="fas fa-users"></i> Team: 5 (Backend)</span>
+                                <span><i class="fas fa-hourglass-half"></i> Duration: 1.5 Yrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Let's connect and discuss technical opportunities</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info-panel glass-panel">
+                        <h3>Contact Details</h3>
+                        <p>If you're looking for a dedicated Backend Developer experienced in building robust APIs, optimizing database layouts, and working in high-growth agile environments, reach out today!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:bao.duong.huy@madison.dev">bao.duong.huy@madison.dev</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <a href="tel:+84376219699">+84 (37) 621-9699</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <span>Da Nang, Vietnam</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-panel glass-panel">
+                        <form id="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Hi Bao, I would love to collaborate on..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Duong Huy Bao. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
