@@ -65,8 +65,8 @@ cp -R index.html css js "$WEB_ROOT/"
 
 # Set correct ownership and permissions
 log_info "Đang phân quyền thư mục cho user www-data..."
-chown -R www-data:www-data "/var/www/$DOMAIN"
-chmod -R 755 "/var/www/$DOMAIN"
+chown -R www-data:www-data "$WEB_ROOT"
+chmod -R 755 "$WEB_ROOT"
 
 # 5. Create Nginx Server Block Configuration
 NGINX_CONF="/etc/nginx/sites-available/$DOMAIN"
