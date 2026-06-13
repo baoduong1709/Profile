@@ -1,7 +1,8 @@
 /**
- * Personal Profile Website Interaction Script
+ * Personal Profile Website Interaction Script v2.0
  * Author: Duong Huy Bao
- * Description: Logic for theme switching, navigation, animations, and contact form handling.
+ * Description: Theme switching, navigation, typewriter, scroll animations,
+ *              card tilt effect, staggered reveals, and contact form.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon = themeToggleBtn.querySelector('i');
     const bodyElement = document.body;
 
-    // Check for saved theme preference, otherwise use system preference (default dark)
     const savedTheme = localStorage.getItem('theme') || 'dark';
     bodyElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -27,12 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.className = 'fas fa-sun'; // Show sun icon to switch to light mode
-        } else {
-            themeIcon.className = 'fas fa-moon'; // Show moon icon to switch to dark mode
-        }
+        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
+
+    // ==========================================================================
+    // Header Scroll Effect
+    // ==========================================================================
+    const mainHeader = document.getElementById('main-header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    }, { passive: true });
 
     // ==========================================================================
     // Mobile Navigation Menu
@@ -46,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinksContainer.classList.toggle('active');
     });
 
-    // Close menu when clicking on nav links
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileNavToggle.classList.remove('active');
@@ -54,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close menu when clicking outside of navbar
     document.addEventListener('click', (event) => {
         const isClickInsideNav = navLinksContainer.contains(event.target) || mobileNavToggle.contains(event.target);
         if (!isClickInsideNav && navLinksContainer.classList.contains('active')) {
@@ -67,7 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typewriter Effect
     // ==========================================================================
     const typewriterElement = document.getElementById('typewriter');
-    const words = ["Full Stack Developer", "Frontend Engineer", "API Architect", "Database Optimizer"];
+    const words = [
+        "AI-powered platforms",
+        "browser-based games",
+        "NestJS backend systems",
+        "real-time web apps",
+        "full-stack solutions"
+    ];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -79,48 +92,45 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDeleting) {
             typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
-            typingSpeed = 50; // Speed up when deleting
+            typingSpeed = 40;
         } else {
             typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
-            typingSpeed = 100; // Normal typing speed
+            typingSpeed = 90;
         }
 
-        // Handle word transitions
         if (!isDeleting && charIndex === currentWord.length) {
             isDeleting = true;
-            typingSpeed = 2000; // Wait before starting delete
+            typingSpeed = 2000;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            typingSpeed = 500; // Wait briefly before typing next word
+            typingSpeed = 400;
         }
 
         setTimeout(typeEffect, typingSpeed);
     }
 
-    // Initialize typewriter if element exists
     if (typewriterElement) {
-        setTimeout(typeEffect, 1000);
+        setTimeout(typeEffect, 800);
     }
 
     // ==========================================================================
-    // Scroll Reveal & Active Nav Link Observer
+    // Scroll Reveal with Staggered Animations
     // ==========================================================================
     const revealElements = document.querySelectorAll('.scroll-reveal');
     const sections = document.querySelectorAll('section');
 
-    // Scroll reveal observer
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target); // Stop observing once revealed
+                revealObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0.1,
+        rootMargin: "0px 0px -60px 0px"
     });
 
     revealElements.forEach(element => {
@@ -141,12 +151,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.5,
-        rootMargin: "-80px 0px -40% 0px" // Account for fixed header height
+        threshold: 0.4,
+        rootMargin: "-80px 0px -40% 0px"
     });
 
     sections.forEach(section => {
         activeLinkObserver.observe(section);
+    });
+
+    // ==========================================================================
+    // Card Tilt Effect (3D perspective on mouse move)
+    // ==========================================================================
+    const tiltCards = document.querySelectorAll('.glass-panel');
+    const TILT_MAX = 4; // Max degrees of tilt
+    const TILT_SPEED = 300; // Transition speed in ms
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = `transform 0.1s ease-out, border-color var(--transition-smooth), box-shadow var(--transition-smooth)`;
+        });
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+
+            const rotateX = (-mouseY / (rect.height / 2)) * TILT_MAX;
+            const rotateY = (mouseX / (rect.width / 2)) * TILT_MAX;
+
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transition = `transform ${TILT_SPEED}ms ease-out, border-color var(--transition-smooth), box-shadow var(--transition-smooth)`;
+            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
     });
 
     // ==========================================================================
@@ -158,101 +199,230 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
 
             if (name && email && message) {
-                // Here, you would normally send a fetch request to a server or email service
-                console.log('Form Submitted successfully:', { name, email, message });
-                
-                // Show dynamic success notification
+                console.log('Form Submitted:', { name, email, message });
                 showSuccessNotification(name);
-                
-                // Reset the form
                 contactForm.reset();
             }
         });
     }
 
     function showSuccessNotification(senderName) {
-        // Create custom notification popup
         const notification = document.createElement('div');
-        notification.style.position = 'fixed';
-        notification.style.bottom = '30px';
-        notification.style.right = '30px';
-        notification.style.background = 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)';
-        notification.style.color = '#ffffff';
-        notification.style.padding = '16px 28px';
-        notification.style.borderRadius = '8px';
-        notification.style.boxShadow = '0 10px 30px rgba(99, 102, 241, 0.4)';
-        notification.style.zIndex = '9999';
-        notification.style.fontFamily = 'var(--font-heading)';
-        notification.style.fontWeight = '600';
-        notification.style.fontSize = '0.95rem';
-        notification.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
-        notification.style.transform = 'translateY(100px)';
-        notification.style.opacity = '0';
-        notification.style.display = 'flex';
-        notification.style.alignItems = 'center';
-        notification.style.gap = '10px';
-        
+        notification.className = 'toast-notification';
         notification.innerHTML = `<i class="fas fa-check-circle"></i> Thank you, ${senderName}! Your message was sent successfully.`;
         
         document.body.appendChild(notification);
         
-        // Trigger reflow & slide-in
-        setTimeout(() => {
-            notification.style.transform = 'translateY(0)';
-            notification.style.opacity = '1';
-        }, 100);
+        // Trigger slide-in
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                notification.classList.add('show');
+            });
+        });
 
-        // Hide and remove after 5 seconds
+        // Remove after 5 seconds
         setTimeout(() => {
-            notification.style.transform = 'translateY(100px)';
-            notification.style.opacity = '0';
-            setTimeout(() => {
-                notification.remove();
-            }, 400);
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 500);
         }, 5000);
     }
 
     // ==========================================================================
-    // Projects Filtering Logic
+    // Mouse-Following Spotlight
     // ==========================================================================
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const mouseLight = document.getElementById('mouse-light');
+    let mouseLightActive = false;
 
-    if (filterButtons.length > 0 && projectCards.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Active filter styling update
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+    document.addEventListener('mousemove', (e) => {
+        if (!mouseLightActive) {
+            mouseLight.classList.add('active');
+            mouseLightActive = true;
+        }
+        mouseLight.style.left = `${e.clientX}px`;
+        mouseLight.style.top = `${e.clientY}px`;
+    });
 
-                const filterType = button.getAttribute('data-filter');
+    document.addEventListener('mouseleave', () => {
+        mouseLight.classList.remove('active');
+        mouseLightActive = false;
+    });
 
-                projectCards.forEach(card => {
-                    // Trigger fade-out scale animation
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.95)';
-                    
-                    // Delay display change until animation completes
+    // ==========================================================================
+    // Canvas Node Network
+    // ==========================================================================
+    const canvas = document.getElementById('node-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let mouseX = -1000, mouseY = -1000;
+        const CONNECT_DIST = 200;
+        const MOUSE_RADIUS = 150;
+
+        // Node categories with labels and colors
+        const categories = [
+            { label: 'AI', color: 'rgba(168, 85, 247, 0.6)' },
+            { label: 'Backend', color: 'rgba(99, 102, 241, 0.6)' },
+            { label: 'Cloud', color: 'rgba(6, 182, 212, 0.6)' },
+            { label: 'Game', color: 'rgba(236, 72, 153, 0.6)' },
+            { label: '', color: 'rgba(99, 102, 241, 0.3)' }
+        ];
+
+        class Node {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * (width || window.innerWidth);
+                this.y = Math.random() * (height || window.innerHeight);
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.baseRadius = Math.random() * 2 + 1.5;
+                this.radius = this.baseRadius;
+                const cat = categories[Math.floor(Math.random() * categories.length)];
+                this.label = cat.label;
+                this.color = cat.color;
+                this.glowPhase = Math.random() * Math.PI * 2;
+                this.glowSpeed = 0.005 + Math.random() * 0.01;
+            }
+
+            update() {
+                // Gentle ambient movement
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Breathing glow
+                this.glowPhase += this.glowSpeed;
+                this.radius = this.baseRadius + Math.sin(this.glowPhase) * 0.5;
+
+                // Mouse interaction — gentle push away
+                const dx = this.x - mouseX;
+                const dy = this.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < MOUSE_RADIUS && dist > 0) {
+                    const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS * 0.8;
+                    this.x += (dx / dist) * force;
+                    this.y += (dy / dist) * force;
+                }
+
+                // Bounce off edges with padding
+                if (this.x < 20) { this.x = 20; this.vx *= -1; }
+                if (this.x > width - 20) { this.x = width - 20; this.vx *= -1; }
+                if (this.y < 20) { this.y = 20; this.vy *= -1; }
+                if (this.y > height - 20) { this.y = height - 20; this.vy *= -1; }
+            }
+
+            draw() {
+                // Node glow
+                const glowAlpha = 0.15 + Math.sin(this.glowPhase) * 0.08;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2);
+                ctx.fillStyle = this.color.replace(/[\d.]+\)$/, `${glowAlpha})`);
+                ctx.fill();
+
+                // Node core
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+
+                // Label
+                if (this.label) {
+                    ctx.font = '500 9px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillStyle = this.color.replace(/[\d.]+\)$/, '0.8)');
+                    ctx.textAlign = 'center';
+                    ctx.fillText(this.label, this.x, this.y - this.radius * 4 - 4);
+                }
+            }
+        }
+
+        let nodes = [];
+
+        function initNodes() {
+            const count = Math.min(Math.floor((width * height) / 50000), 30);
+            nodes = Array.from({ length: Math.max(count, 12) }, () => new Node());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < CONNECT_DIST) {
+                        const alpha = (1 - dist / CONNECT_DIST) * 0.12;
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            drawConnections();
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        // Track mouse for node interaction
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            mouseX = -1000;
+            mouseY = -1000;
+        });
+
+        // Click ripple on nodes
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('a, button, input, textarea, select, form')) return;
+            
+            // Push nodes away from click point
+            nodes.forEach(node => {
+                const dx = node.x - e.clientX;
+                const dy = node.y - e.clientY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 300 && dist > 0) {
+                    const force = (300 - dist) / 300 * 3;
+                    node.vx += (dx / dist) * force;
+                    node.vy += (dy / dist) * force;
+                    // Dampen velocity back to normal over time
                     setTimeout(() => {
-                        if (filterType === 'all' || card.getAttribute('data-category') === filterType) {
-                            card.style.display = 'flex';
-                            // Let the browser calculate layout before fading back in
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1)';
-                            }, 50);
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }, 400); // Matches --transition-smooth (0.4s)
-                });
+                        node.vx *= 0.3;
+                        node.vy *= 0.3;
+                    }, 800);
+                }
             });
         });
+
+        window.addEventListener('resize', () => {
+            resize();
+            initNodes();
+        });
+
+        resize();
+        initNodes();
+        animate();
     }
 });

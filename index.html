@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Duong Huy Bao - Professional Full Stack Developer. Specializing in modern frontend, NestJS backend, database optimization, and scalable systems.">
-    <meta name="keywords" content="Duong Huy Bao, Full Stack Developer, Portfolio, Software Engineer, NestJS, React, Madison Technologies, Da Nang">
+    <meta name="description" content="Duong Huy Bao - Full Stack Developer. Building modern web apps, AI platforms, and interactive games. Based in Da Nang, Vietnam.">
+    <meta name="keywords" content="Duong Huy Bao, Full Stack Developer, Portfolio, Software Engineer, NestJS, React, Next.js, TypeScript, Da Nang">
     <meta name="author" content="Duong Huy Bao">
-    <title>Duong Huy Bao | Full Stack Developer Portfolio</title>
+    <title>Bao Duong | Full Stack Developer</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,19 +14,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
 <body data-theme="dark">
-    <!-- Background Gradients (Decorative for Glassmorphism) -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <!-- Premium Background System -->
+    <div class="bg-system">
+        <div class="bg-grid"></div>
+        <div class="bg-aurora">
+            <div class="aurora-blob aurora-1"></div>
+            <div class="aurora-blob aurora-2"></div>
+            <div class="aurora-blob aurora-3"></div>
+        </div>
+        <canvas id="node-canvas"></canvas>
+        <div class="mouse-light" id="mouse-light"></div>
+    </div>
 
     <!-- Header / Navigation -->
-    <header class="main-header">
+    <header class="main-header" id="main-header">
         <div class="container navbar">
             <a href="#" class="logo">
                 <span class="logo-dot"></span>
@@ -56,11 +63,11 @@
         <section id="hero" class="hero-section">
             <div class="container hero-container">
                 <div class="hero-content fade-in">
-                    <span class="hero-subtitle">Engineering Robust Systems</span>
-                    <h1 class="hero-title">Hi, I'm <span class="highlight">Duong Huy Bao</span></h1>
-                    <h2 class="hero-tagline">I'm a <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></h2>
+                    <span class="hero-subtitle">Full Stack Developer</span>
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Bao Duong</span></h1>
+                    <h2 class="hero-tagline">I build <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></h2>
                     <p class="hero-description">
-                        Full Stack Engineer with 2 years of experience in web application development. Specializing in crafting high-performance user interfaces and building scalable server systems with a strong focus on clean architecture, performance tuning, and AI tool integrations.
+                        A passionate developer with 2+ years of professional experience crafting high-performance web applications, AI-powered platforms, and interactive browser games. I love turning ideas into polished digital products.
                     </p>
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -70,17 +77,15 @@
                 <div class="hero-image-wrapper fade-in">
                     <div class="profile-card-glass">
                         <div class="avatar-container">
-                            <div class="avatar-placeholder">
-                                <i class="fas fa-terminal"></i>
-                            </div>
+                            <img src="img/avatar.png" alt="Bao Duong" class="avatar-img">
                         </div>
                         <div class="profile-card-info">
-                            <h3>Duong Huy Bao</h3>
+                            <h3>Bao Duong</h3>
                             <p>Full Stack Developer</p>
                             <div class="profile-card-socials">
-                                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="mailto:bao.duong.huy@madison.dev" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="https://github.com/baoduong1709" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/baoduongdev" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="mailto:hello@baoduong.dev" aria-label="Email"><i class="fas fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
@@ -88,58 +93,58 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section — Bento Grid -->
         <section id="about" class="about-section scroll-reveal">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">My professional background</p>
+                    <p class="section-subtitle">My journey as a developer</p>
                 </div>
-                <div class="about-grid">
-                    <div class="about-text-card glass-panel">
-                        <h3>My Story & Experience</h3>
+                <div class="about-bento">
+                    <div class="about-bio-card glass-panel stagger-1">
+                        <h3>My Story</h3>
                         <p>
-                            Currently working at <strong>Madison Technologies</strong>, I design and develop responsive frontend interfaces and robust backend system architectures. I bridge the gap between user-centric visual designs and highly optimized, high-traffic data APIs.
+                            I'm a Full Stack Developer based in Da Nang, Vietnam, with over 2 years of professional experience building web applications at scale. My journey started with a Bachelor's degree from the <strong>University of Economics – The University of Danang</strong>, where I developed a passion for clean code and problem-solving.
                         </p>
                         <p>
-                            I specialize in the Node.js ecosystem (NestJS) on the server side and modern frontend frameworks like React.js and Next.js. I have a strong foundation in clean architecture patterns, database design, query tuning, and implementing rich interactive animations.
+                            During my time in the industry, I've worked on enterprise-level systems handling complex data pipelines, real-time notifications, and multi-tenant architectures using NestJS, PostgreSQL, and Redis. These experiences shaped my approach to building reliable, scalable software.
                         </p>
                         <p>
-                            I graduated with a Bachelor's degree from the <strong>University of Economics – The University of Danang</strong> (2020 - 2024), where I refined my analytical thinking and problem-solving methodologies.
+                            Beyond my professional work, I'm deeply passionate about creating personal projects — from AI-powered platforms to browser-based games — pushing the boundaries of what's possible on the web.
                         </p>
                     </div>
                     <div class="about-stats-grid">
-                        <div class="stat-card glass-panel">
+                        <div class="stat-card glass-panel stagger-2">
                             <span class="stat-num">2+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
-                        <div class="stat-card glass-panel">
-                            <span class="stat-num">2</span>
-                            <span class="stat-label">Enterprise Projects</span>
+                        <div class="stat-card glass-panel stagger-3">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label">Projects Built</span>
                         </div>
-                        <div class="stat-card glass-panel">
-                            <span class="stat-num">6</span>
-                            <span class="stat-label">Avg. Team Size</span>
+                        <div class="stat-card glass-panel stagger-4">
+                            <span class="stat-num">10+</span>
+                            <span class="stat-label">Technologies</span>
                         </div>
-                        <div class="stat-card glass-panel">
-                            <span class="stat-num">1.5+</span>
-                            <span class="stat-label">Years Longest Project</span>
+                        <div class="stat-card glass-panel stagger-5">
+                            <span class="stat-num">∞</span>
+                            <span class="stat-label">Cups of Coffee</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section — Bento Grid -->
         <section id="skills" class="skills-section scroll-reveal">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Technical Skills</h2>
-                    <p class="section-subtitle">Technologies, frameworks, and methodologies I specialize in</p>
+                    <p class="section-subtitle">Technologies and tools I work with daily</p>
                 </div>
-                <div class="skills-grid">
+                <div class="skills-bento">
                     <!-- Frontend Development Card -->
-                    <div class="skills-card glass-panel">
+                    <div class="skills-card glass-panel stagger-1">
                         <div class="skills-card-header">
                             <i class="fas fa-laptop-code skill-icon"></i>
                             <h3>Frontend Development</h3>
@@ -150,135 +155,100 @@
                             <li><i class="fab fa-html5 text-orange"></i> HTML5 / CSS3 / Sass</li>
                             <li><i class="fas fa-crop-simple text-purple"></i> Responsive UI Design</li>
                             <li><i class="fas fa-wand-magic-sparkles text-pink"></i> Framer Motion & Canvas</li>
+                            <li><i class="fas fa-gamepad text-green"></i> Phaser 3 Game Engine</li>
                         </ul>
                     </div>
 
                     <!-- Backend & Databases Card -->
-                    <div class="skills-card glass-panel">
+                    <div class="skills-card glass-panel stagger-2">
                         <div class="skills-card-header">
                             <i class="fas fa-server skill-icon"></i>
                             <h3>Backend & Databases</h3>
                         </div>
                         <ul class="skills-list">
-                            <li><i class="fab fa-node-js text-green"></i> NestJS / Node.js</li>
-                            <li><i class="fas fa-network-wired text-blue"></i> RESTful & GraphQL APIs</li>
-                            <li><i class="fas fa-database text-cyan"></i> PostgreSQL / MySQL / MongoDB</li>
-                            <li><i class="fas fa-bolt text-orange"></i> Redis (Caching & Queues)</li>
-                            <li><i class="fas fa-project-diagram text-teal"></i> Prisma ORM & Query Tuning</li>
+                            <li><i class="fab fa-node-js text-green"></i> NestJS / Express.js</li>
+                            <li><i class="fas fa-database text-cyan"></i> PostgreSQL / MongoDB</li>
+                            <li><i class="fas fa-bolt text-orange"></i> Redis & BullMQ</li>
+                            <li><i class="fas fa-project-diagram text-teal"></i> Prisma ORM</li>
+                            <li><i class="fas fa-plug text-blue"></i> Socket.IO Real-time</li>
+                            <li><i class="fas fa-shield-halved text-yellow"></i> JWT Auth & RBAC</li>
                         </ul>
                     </div>
 
-                    <!-- DevOps & Cloud Card -->
-                    <div class="skills-card glass-panel">
+                    <!-- DevOps & Tools Card -->
+                    <div class="skills-card glass-panel stagger-3">
                         <div class="skills-card-header">
                             <i class="fas fa-cloud-sun skill-icon"></i>
-                            <h3>DevOps & Cloud</h3>
+                            <h3>DevOps & Tools</h3>
                         </div>
                         <ul class="skills-list">
-                            <li><i class="fab fa-docker text-lightblue"></i> Docker Containerization</li>
-                            <li><i class="fab fa-git-alt text-red"></i> Git / GitHub Version Control</li>
-                            <li><i class="fas fa-cloud text-purple"></i> CI/CD & Vercel / AWS</li>
-                            <li><i class="fas fa-fire text-orange"></i> Firebase & Supabase</li>
+                            <li><i class="fab fa-docker text-lightblue"></i> Docker & Compose</li>
+                            <li><i class="fab fa-git-alt text-red"></i> Git / GitHub</li>
+                            <li><i class="fas fa-cloud text-purple"></i> AWS S3 / Nginx / PM2</li>
                             <li><i class="fas fa-brain text-pink"></i> AI API Integrations</li>
+                            <li><i class="fab fa-linux text-cyan"></i> Linux / Ubuntu Server</li>
+                            <li><i class="fas fa-file-code text-green"></i> Swagger / OpenAPI</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Section — Featured Spotlight -->
         <section id="projects" class="projects-section scroll-reveal">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Projects</h2>
-                    <p class="section-subtitle">Restructured showcase separating commercial systems and personal creations</p>
-                </div>
-
-                <!-- Projects Filter Tabs -->
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="enterprise">Enterprise</button>
-                    <button class="filter-btn" data-filter="personal">Personal</button>
+                    <h2 class="section-title">Personal Projects</h2>
+                    <p class="section-subtitle">Things I've built in my free time</p>
                 </div>
 
                 <div class="projects-grid">
-                    <!-- Project 1: GDOS -->
-                    <div class="project-card glass-panel" data-category="enterprise">
-                        <div class="project-category-badge badge-enterprise">Enterprise</div>
+                    <!-- Project 1: Dawn of Eras Tower Defense -->
+                    <div class="project-card glass-panel stagger-1">
                         <div class="project-img-container">
-                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="GDOS Construction Dashboard Preview" class="project-img">
-                        </div>
-                        <div class="project-info">
-                            <span class="project-tag">Cloud Enterprise / Construction</span>
-                            <h3>Gamuda Digital Operating System (GDOS)</h3>
-                            <p>
-                                A centralized, cloud-based software ecosystem that integrates and streamlines construction project management and operations across Gamuda's global projects. Consolidates enterprise data from Autodesk Construction Cloud (ACC), SAP, and Oracle P6 to eliminate data silos. Digitizes daily operations such as quality inspections, checklists, safety forms, and cost monitoring.
-                            </p>
-                            <div class="project-tech">
-                                <span>NestJS</span>
-                                <span>Redis</span>
-                                <span>MongoDB</span>
-                                <span>BullJS</span>
-                                <span>Firebase</span>
-                                <span>Autodesk API</span>
-                            </div>
-                            <div class="project-links">
-                                <span><i class="fas fa-users"></i> Team: 6 (Backend)</span>
-                                <span><i class="fas fa-hourglass-half"></i> Duration: 3 Mos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: Gamuda Lifestyle App -->
-                    <div class="project-card glass-panel" data-category="enterprise">
-                        <div class="project-category-badge badge-enterprise">Enterprise</div>
-                        <div class="project-img-container">
-                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="GL Lifestyle App Resident System Preview" class="project-img">
-                        </div>
-                        <div class="project-info">
-                            <span class="project-tag">Mobile Ecosystem / Resident Management</span>
-                            <h3>Gamuda Land Lifestyle App (GL Lifestyle+)</h3>
-                            <p>
-                                A comprehensive resident management solution (RMS) mobile application developed for homeowners and residents within the Gamuda Land ecosystem. Features facility booking, smart visitor management, loyalty rewards programs, community announcements, safety panic buttons, and an AI Concierge to assist residents throughout their homeownership journey.
-                            </p>
-                            <div class="project-tech">
-                                <span>NestJS</span>
-                                <span>Prisma</span>
-                                <span>PostgreSQL</span>
-                                <span>MySQL</span>
-                                <span>Redis</span>
-                                <span>BullJS</span>
-                                <span>Firebase</span>
-                            </div>
-                            <div class="project-links">
-                                <span><i class="fas fa-users"></i> Team: 5 (Backend)</span>
-                                <span><i class="fas fa-hourglass-half"></i> Duration: 1.5 Yrs</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Dawn of Eras: Tower Defense -->
-                    <div class="project-card glass-panel" data-category="personal">
-                        <div class="project-category-badge badge-personal">Personal</div>
-                        <div class="project-img-container">
-                            <img src="img/dawn-of-eras-cover.png" alt="Dawn of Eras Game Playfield Cover" class="project-img">
+                            <img src="img/dawn-of-eras-cover.png" alt="Dawn of Eras: Tower Defense — Game playfield showing medieval and futuristic towers" class="project-img">
                         </div>
                         <div class="project-info">
                             <span class="project-tag">2D Web Game / Tactical TD</span>
                             <h3>Dawn of Eras: Tower Defense</h3>
                             <p>
-                                An ultimate tactical 2D tower defense game evolving through historical eras. Players deploy defensive structures, manage resources, and adapt strategies against waves of enemies as technology progresses from stone-age to future sci-fi eras. Built with a focus on smooth gameplay mechanics, pathfinding, and interactive overlay UI.
+                                An ultimate tactical tower defense game evolving through historical eras. Players deploy defensive structures, manage resources, and adapt strategies against waves of enemies as technology progresses from stone-age to sci-fi eras.
                             </p>
                             <div class="project-tech">
                                 <span>Phaser 3</span>
                                 <span>TypeScript</span>
                                 <span>Vite</span>
-                                <span>HTML5/CSS3</span>
-                                <span>Canvas</span>
+                                <span>Express.js</span>
+                                <span>Prisma</span>
+                                <span>PostgreSQL</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://doe.baoduong.dev" target="_blank"><i class="fas fa-external-link-alt"></i> Play Game</a>
-                                <span><i class="fas fa-user"></i> Solo Project</span>
+                                <a href="https://doe.baoduong.dev" target="_blank" class="btn btn-primary"><i class="fas fa-gamepad"></i> Play Game</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: NexusAI -->
+                    <div class="project-card glass-panel stagger-2">
+                        <div class="project-img-container">
+                            <img src="img/nexusai-cover.png" alt="NexusAI — AI-powered project management dashboard with Kanban board and AI chat" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">AI Platform / Project Management</span>
+                            <h3>NexusAI</h3>
+                            <p>
+                                An intelligent project management and AI assistant platform. Upload documents, let AI analyze and break them into tasks, then assign team members based on their skills. Features Kanban boards, real-time collaboration, and RBAC.
+                            </p>
+                            <div class="project-tech">
+                                <span>Next.js 15</span>
+                                <span>NestJS</span>
+                                <span>TypeScript</span>
+                                <span>Prisma</span>
+                                <span>PostgreSQL</span>
+                                <span>Socket.IO</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://nexusai.baoduong.dev" target="_blank" class="btn btn-primary"><i class="fas fa-rocket"></i> Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -291,19 +261,19 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's connect and discuss technical opportunities</p>
+                    <p class="section-subtitle">Let's connect and build something amazing together</p>
                 </div>
                 <div class="contact-grid">
-                    <div class="contact-info-panel glass-panel">
+                    <div class="contact-info-panel glass-panel stagger-1">
                         <h3>Contact Details</h3>
-                        <p>If you're looking for a dedicated Backend Developer experienced in building robust APIs, optimizing database layouts, and working in high-growth agile environments, reach out today!</p>
+                        <p>Whether you have an exciting project idea, a collaboration opportunity, or just want to say hi — I'd love to hear from you!</p>
                         
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <h4>Email</h4>
-                                    <a href="mailto:bao.duong.huy@madison.dev">bao.duong.huy@madison.dev</a>
+                                    <a href="mailto:hello@baoduong.dev">hello@baoduong.dev</a>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -323,7 +293,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-form-panel glass-panel">
+                    <div class="contact-form-panel glass-panel stagger-2">
                         <form id="contact-form" action="#" method="POST">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
@@ -335,7 +305,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Your Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Hi Bao, I would love to collaborate on..."></textarea>
+                                <textarea id="message" name="message" rows="5" required placeholder="Hi Bao, I'd love to collaborate on..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
                         </form>
@@ -348,15 +318,15 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container footer-content">
-            <p>&copy; 2026 Duong Huy Bao. All rights reserved.</p>
+            <p>&copy; 2026 Bao Duong. All rights reserved.</p>
             <div class="footer-socials">
-                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/baoduong1709" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/baoduongdev" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
 
     <!-- Custom JS -->
-    <script src="js/app.js?v=1.1"></script>
+    <script src="js/app.js?v=2.0"></script>
 </body>
 </html>
