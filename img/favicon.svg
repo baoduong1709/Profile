@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Accent gradient matching site style -->
+    <linearGradient id="b-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    
+    <linearGradient id="dot-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+
+    <!-- Glowing effect to match modern UI -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#6366f1" flood-opacity="0.3" />
+      <feDropShadow dx="0" dy="-4" stdDeviation="8" flood-color="#ec4899" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Centered geometric monogram 'B' with transparent background -->
+  <g filter="url(#neon-glow)">
+    <!-- Stem: Rounded bar -->
+    <rect x="122" y="80" width="48" height="352" rx="24" fill="url(#b-gradient)" />
+    
+    <!-- Top Loop -->
+    <path d="M170 96 H285 C336.915 96 379 138.085 379 190 C379 241.915 336.915 284 285 284 H170 V236 H285 C310.405 236 331 215.405 331 190 C331 164.595 310.405 144 285 144 H170 Z" fill="url(#b-gradient)" />
+    
+    <!-- Bottom Loop -->
+    <path d="M170 228 H295 C346.915 228 389 270.085 389 322 C389 373.915 346.915 416 295 416 H170 V368 H295 C320.405 368 341 347.405 341 322 C341 296.595 320.405 276 295 276 H170 Z" fill="url(#b-gradient)" />
+
+    <!-- Accent dot -->
+    <circle cx="285" cy="256" r="20" fill="url(#dot-gradient)" />
+  </g>
+</svg>
